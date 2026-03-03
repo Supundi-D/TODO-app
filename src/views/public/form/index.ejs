@@ -1,0 +1,38 @@
+<%- layout('layout')%>
+
+<br>
+
+<div style="width:100%; height: 50px; padding: 10px; background-color:yellow">
+
+    <form action="/form" method="POST" >
+
+        <label>Enter Task </label>
+        <input name="task" id="task" type="text" placeholder="Enter task you did" required/>
+
+        <label>Completed </label>
+        <input name="status" id="status" type="checkbox" />
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+
+<h3>Task you did :</h3>
+
+<ul>
+    <% tasks.forEach(function(todo) { %>
+        
+        <li class="<%= todo.status == 1 ? 'completed' : '' %>">
+            <%= todo.task %>
+        </li>
+
+        <a href="/form/edit/<%= todo.id %>" >
+            <button type="button">Edit</button>
+        </a>
+        <form action="/delete-task/<%= todo.id %>" method="POST">
+            <button type="submit">Delete</button>
+        </form>
+    <% }) %>
+</ul>
+
+

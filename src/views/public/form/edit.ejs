@@ -1,0 +1,16 @@
+<h2>Edit Task</h2>
+
+<form action="/form/update/<%= task.id %>" method="POST">
+
+  <p>Task ID: <%= task.id %></p>
+    
+    <label>Task Name:</label>
+    <input type="text" name="task" value="<%= task.task %>">
+
+    <label>Completed </label>
+    <input type="checkbox" name="status" value="<%= task.status %>">
+
+    <p>Created At: <%= task.created_at %></p>
+
+    <button type="submit">Update Task</button>
+</form>
